@@ -1,0 +1,26 @@
+{{- $root := . -}}
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "app.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ template "app.name" . }}
+    chart: {{ template "app.fullname" . }}
+    version: {{ template "app.version" . }}
+spec:
+  selector:
+    helm-app: {{ template "app.name" . }}
+    helm-chart: {{ template "app.fullname" . }}
+  type: {{ .Values.service.type }}
+  ports:
+  {{- range $key, $value :=  .Values.deployment.ports }}
+  - name: {{ $key }}
+    port: {{ $value.port }}
+    targetPort: {{ $value.containerPort }}
+    protocol: {{ $value.protocol }}
+    {{- if and (eq "NodePort" $root.Values.service.type) $value.nodePort }}
+    nodePort: {{ $value.nodePort }}
+    {{- end }}
+  {{- end }}

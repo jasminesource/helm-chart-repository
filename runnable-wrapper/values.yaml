@@ -1,0 +1,44 @@
+ingress:
+  enabled: false
+  configurations: {}
+    #ingress1:
+    #property
+    #ingress2:
+  #property
+
+
+service:
+  type: ClusterIP
+  servicePort: http
+
+deployment:
+  labels: {}
+  annotations: {}
+  affinity: {}
+  tolerations: []
+  initContainers: []
+  image: ""
+  imagePullSecret: ""
+  imagePullPolicy: ""
+  ports:
+    http:
+      port: 80
+      containerPort: 8080
+      protocol: TCP
+#    debug-port:
+#      port: 8000
+#      containerPort: 8000
+#      protocol: TCP
+#      nodePort: 32000
+  env: {}
+  livenessProbe: {}
+  readinessProbe: {}
+  resources: {}
+  secrets: ""
+
+
+
+
+
+
+

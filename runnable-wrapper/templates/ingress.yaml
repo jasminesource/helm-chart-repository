@@ -1,0 +1,42 @@
+{{- if .Values.ingress.enabled -}}
+{{- $serviceName := include "app.fullname" . -}}
+{{- $servicePort := .Values.service.servicePort -}}
+{{- $root := . -}}
+
+{{- range $ingressKey, $ingressVal := .Values.ingress.configurations }}
+apiVersion: {{ .apiVersion }}
+kind: Ingress
+metadata:
+  name: {{ template "app.fullname" $root }}-{{ $ingressKey }}
+  labels:
+    app: {{ template "app.name" $root}}
+    chart: {{ $root.Chart.Name }}-{{ $root.Chart.Version | replace "+" "_" }}
+    release: {{ $root.Release.Name }}
+    heritage: {{ $root.Release.Service }}
+  annotations:
+    {{- range $key, $value := .annotations }}
+      {{ $key }}: {{ $value | quote }}
+    {{- end }}
+spec:
+  backend:
+    serviceName: {{ $serviceName }}
+    servicePort: {{ $servicePort }}
+{{- if .hosts }}
+  rules:
+  {{- range $host := .hosts }}
+  - host: {{ $host }}
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: {{ $serviceName }}
+            servicePort: {{ $servicePort }}
+  {{- end -}}
+{{- end -}}
+  {{- if .tls }}
+  tls:
+{{ toYaml .tls | indent 4 }}
+  {{- end -}}
+{{- end -}}
+
+{{- end }}
