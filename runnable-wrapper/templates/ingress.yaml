@@ -4,6 +4,7 @@
 {{- $root := . -}}
 
 {{- range $ingressKey, $ingressVal := .Values.ingress.configurations }}
+---
 apiVersion: {{ .apiVersion }}
 kind: Ingress
 metadata:
