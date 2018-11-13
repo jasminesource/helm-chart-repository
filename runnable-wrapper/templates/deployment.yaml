@@ -11,7 +11,7 @@ metadata:
   annotations:
 {{ toYaml .Values.annotations | indent 4 }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.deployment.replicas }}
   selector:
     matchLabels:
       helm-app: {{ template "app.name" . }}
