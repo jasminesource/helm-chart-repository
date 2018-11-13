@@ -2,15 +2,23 @@ apiVersion: v1
 entries:
   runnable-wrapper:
   - apiVersion: v1
-    created: 2018-11-13T12:31:23.90037295Z
+    created: 2018-11-13T16:40:42.636825084Z
     description: A Helm chart for Kubernetes
-    digest: e1bfca365e6e1add63090c5cab3c0703d056d56e7f8ea88d5fba416c6022ad35
+    digest: 2281c5b013a1ce2b8e5105148c33cc64e6c2c7f4232e427c8c6ffb68ca37e72b
+    name: runnable-wrapper
+    urls:
+    - runnable-wrapper-0.0.4.tgz
+    version: 0.0.4
+  - apiVersion: v1
+    created: 2018-11-13T16:40:42.636545494Z
+    description: A Helm chart for Kubernetes
+    digest: 46114b9e16392f096fe42f6b064d29e8e59baed45b4067a16f160507a4895333
     name: runnable-wrapper
     urls:
     - runnable-wrapper-0.0.3.tgz
     version: 0.0.3
   - apiVersion: v1
-    created: 2018-11-13T12:31:23.900060049Z
+    created: 2018-11-13T16:40:42.635909135Z
     description: A Helm chart for Kubernetes
     digest: 721bbd85975143105fe72fad147dacd18bdefff0134fcfc686db0b60819fa667
     name: runnable-wrapper
@@ -19,11 +27,11 @@ entries:
     version: 0.0.2
   - apiVersion: v1
     appVersion: "0.1"
-    created: 2018-11-13T12:31:23.899326349Z
+    created: 2018-11-13T16:40:42.635276083Z
     description: A Helm chart for Kubernetes
     digest: b5e9a2d060aa5668d5c956126f8658cf5c975f0e9e0d4369582b2ccecf9eb30b
     name: runnable-wrapper
     urls:
     - runnable-wrapper-0.0.1.tgz
     version: 0.0.1
-generated: 2018-11-13T12:31:23.898103345Z
+generated: 2018-11-13T16:40:42.633949097Z

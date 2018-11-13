@@ -12,6 +12,7 @@ service:
   servicePort: http
 
 deployment:
+  replicas: 1
   labels: {}
   annotations: {}
   affinity: {}
