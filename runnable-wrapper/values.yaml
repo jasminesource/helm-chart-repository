@@ -13,6 +13,7 @@ service:
 
 deployment:
   replicas: 1
+  strategy: {}
   labels: {}
   annotations: {}
   affinity: {}
