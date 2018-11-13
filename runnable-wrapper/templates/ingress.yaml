@@ -4,6 +4,7 @@
 {{- $root := . -}}
 
 {{- range $ingressKey, $ingressVal := .Values.ingress.configurations }}
+{{ if $ingressVal.enabled }}
 ---
 apiVersion: {{ .apiVersion }}
 kind: Ingress
@@ -40,4 +41,5 @@ spec:
   {{- end -}}
 {{- end -}}
 
+{{ end }}
 {{- end }}
