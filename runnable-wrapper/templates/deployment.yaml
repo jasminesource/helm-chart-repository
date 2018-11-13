@@ -26,7 +26,6 @@ spec:
       initContainers:
 {{ toYaml .Values.deployment.initContainers | indent 6 }}
       {{- end }}
-        {{- if .Values.deployment.affinity }}
       {{- if .Values.deployment.strategy }}
 {{ toYaml .Values.deployment.strategy }}
       {{- end }}
